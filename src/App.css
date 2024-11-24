@@ -1,5 +1,25 @@
+:root {
+  --primary-color: #282c34;
+  --secondary-color: #61dafb;
+  --text-color: #ffffff;
+  --background-color: var(--primary-color);
+  --font-size-base: calc(10px + 2vmin);
+}
+
+@media (prefers-color-scheme: light) {
+  :root {
+    --primary-color: #ffffff;
+    --secondary-color: #007acc;
+    --text-color: #000000;
+    --background-color: var(--primary-color);
+  }
+}
+
 .App {
   text-align: center;
+  font-family: Arial, Helvetica, sans-serif;
+  color: var(--text-color);
+  background-color: var(--background-color);
 }
 
 .App-logo {
@@ -13,19 +33,39 @@
   }
 }
 
+@media (prefers-reduced-motion: reduce) {
+  .App-logo {
+    animation: none; /* Desabilita animações para quem prefere evitar */
+  }
+}
+
 .App-header {
-  background-color: #282c34;
+  background-color: var(--primary-color);
   min-height: 100vh;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  font-size: var(--font-size-base);
+  color: var(--text-color);
+  padding: 20px;
+}
+
+@media (max-width: 768px) {
+  .App-header {
+    font-size: calc(8px + 2vmin); /* Ajusta fonte para telas menores */
+    padding: 10px;
+  }
 }
 
 .App-link {
-  color: #61dafb;
+  color: var(--secondary-color);
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.App-link:hover {
+  text-decoration: underline;
 }
 
 @keyframes App-logo-spin {
